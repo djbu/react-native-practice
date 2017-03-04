@@ -17,12 +17,14 @@ import {
 export default class AwesomeProject extends Component {
   render() {
     return (
-      // Try setting `justifyContent` to `center`.
+      // Try setting `alignItems` to 'flex-start'
+      // Try setting `justifyContent` to `flex-end`.
       // Try setting `flexDirection` to `row`.
       <View style={{
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
       }}>
         <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
