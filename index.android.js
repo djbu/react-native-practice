@@ -26,7 +26,7 @@ export default class AwesomeProject extends Component {
         justifyContent: 'center',
         alignItems: 'flex-start',
       }}>
-        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+        <View style={{width: 50, height: 50, backgroundColor: 'powderblue', alignSelf: 'center'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
       </View>
