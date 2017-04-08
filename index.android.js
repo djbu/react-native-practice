@@ -55,9 +55,9 @@ componentWillMount() {
     return (
       <View style={styles.container}>
                 
-                <TouchableHighlight  style={styles.button}>
-                    <Text>{this.state.texto}</Text>
-                </TouchableHighlight>
+                
+                <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
+       style={{width: 400, height: 400}} />
             </View>
     );
   }
