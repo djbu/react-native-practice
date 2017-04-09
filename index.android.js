@@ -1,26 +1,64 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  Text
-} from 'react-native';
-import { FadeInView as FadeInView }  from './archivos/FadeInView.js';
+  StyleSheet,
+  Text,
+  View,
+  Animated
+} from 'react-native'
 
-export default class AwesomeProject extends Component {
-   // Initialize the hardcoded data
-  render() {
+const arr = []
+for (var i = 0; i < 500; i++) {
+  arr.push(i)
+}
+
+export class AwesomeProject extends Component {
+
+  constructor () {
+    super()
+    this.animatedValue = []
+    arr.forEach((value) => {
+      this.animatedValue[value] = new Animated.Value(0)
+    })
+  }
+
+  componentDidMount () {
+    this.animate()
+  }
+
+  animate () {
+    const animations = arr.map((item) => {
+      return Animated.timing(
+        this.animatedValue[item],
+        {
+          toValue: 1,
+          duration: 50
+        }
+      )
+    })
+    Animated.sequence(animations).start()
+  }
+
+  render () {
+    const animations = arr.map((a, i) => {
+      return <Animated.View key={i} style={{opacity: this.animatedValue[a], height: 20, width: 20, backgroundColor: 'red', marginLeft: 3, marginTop: 3}} />
+    })
     return (
-      <FadeInView style={{width: 100, height: 50, backgroundColor: 'powderblue'}}>
-        <Text style={{fontSize: 10, textAlign: 'center', margin: 10}}>Fading in</Text>
-      </FadeInView>
+      <View style={styles.container}>
+        {animations}
+      </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  }
+})
+
 
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);

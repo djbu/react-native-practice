@@ -12,30 +12,49 @@ export class FadeInView extends Component {
     };
   }
   componentDidMount() {
-    Animated.timing(                            // Animate over time
-      this.state.fadeAnim,                      // The animated value to drive
-      {
-        toValue: 1,       
-        duration: 2000,
-        // Animate to opacity: 1, or fully opaque
-      }
-    ).start();
-    Animated.timing(                            // Animate over time
-      this.state.fadeAnim,                      // The animated value to drive
-      {
-        toValue: 0,       
-        duration: 2000,
-        // Animate to opacity: 1, or fully opaque
-      }
-    ).start();    
-    Animated.timing(                            // Animate over time
-      this.state.fadeAnim,                      // The animated value to drive
-      {
-        toValue: 1,       
-        duration: 2000,
-        // Animate to opacity: 1, or fully opaque
-      }
-    ).start();                              // Starts the animation
+    Animated.sequence([   
+      Animated.timing(
+        this.state.fadeAnim,                      // The animated value to drive
+        {
+          toValue: 1,       
+          duration: 1000,
+          // Animate to opacity: 1, or fully opaque
+        }
+      )                         // Animate over time
+      ,
+      Animated.timing(
+        this.state.fadeAnim,                      // The animated value to drive
+        {
+          toValue: 0,       
+          duration: 1000,
+          // Animate to opacity: 1, or fully opaque
+        }
+      ),
+      Animated.timing(
+        this.state.fadeAnim,                      // The animated value to drive
+        {
+          toValue: 1,       
+          duration: 1000,
+          // Animate to opacity: 1, or fully opaque
+        }
+      ),
+      Animated.timing(
+        this.state.fadeAnim,                      // The animated value to drive
+        {
+          toValue: 0,       
+          duration: 1000,
+          // Animate to opacity: 1, or fully opaque
+        }
+      ),
+      Animated.timing(
+        this.state.fadeAnim,                      // The animated value to drive
+        {
+          toValue: 1,       
+          duration: 1000,
+          // Animate to opacity: 1, or fully opaque
+        }
+      )]
+    );                              // Starts the animation
   }
   render() {
     return (
